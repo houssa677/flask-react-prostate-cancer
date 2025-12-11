@@ -11,7 +11,7 @@ import pickle
 app = Flask(__name__)
 CORS(app)
 
-# --- Charger et préparer le dataset ---
+# --- Load and prepare the dataset ---
 df = pd.read_csv(r"C:\Users\houss\Downloads\Prostate_Cancer.csv")
 df["diagnosis_result"] = df["diagnosis_result"].map({"M": 1, "B": 0})
 
@@ -37,7 +37,7 @@ metrics = {
     "F1-Score": round(f1_score(y_test, y_pred), 3)
 }
 
-# Sauvegarde du modèle
+# Save the model
 pickle.dump(model, open("model.pkl", "wb"))
 pickle.dump(scaler, open("scaler.pkl", "wb"))
 
@@ -60,6 +60,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
