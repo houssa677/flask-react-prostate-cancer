@@ -5,26 +5,25 @@ function App() {
   const [inputs, setInputs] = useState({});
   const [prediction, setPrediction] = useState("");
   const [metrics, setMetrics] = useState({});
-
-  // Colonnes d'entrée
+// Input columns
   const columns = [
     "radius", "texture", "perimeter", "area",
     "smoothness", "compactness", "symmetry", "fractal_dimension"
   ];
 
-  // Charger les métriques du modèle au démarrage
+  // Load model metrics on startup
   useEffect(() => {
     axios.get("http://127.0.0.1:5000/metrics")
       .then(res => setMetrics(res.data))
       .catch(err => console.error("Erreur metrics:", err));
   }, []);
 
-  // Gestion des champs
+  // Field handling
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
-
-  // Soumission du formulaire
+  
+  // Form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -88,7 +87,7 @@ function App() {
   );
 }
 
-// === 🎨 Styles CSS en JS ===
+// === 🎨 CSS styles in JS ===
 const styles = {
   container: {
     maxWidth: "700px",
