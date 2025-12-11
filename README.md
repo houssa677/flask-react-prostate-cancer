@@ -30,7 +30,7 @@ flask-react-prostate-cancer/
 ├── backend/
 │   ├── app.py              # Flask application (API endpoints, model loading, prediction)
 │   ├── requirements.txt    # Python dependencies for the backend
-│   └── model.pkl           # Trained logistic regression model (if included)
+│  
 ├── frontend/
 │   ├── package.json        # Frontend dependencies and scripts
 │   ├── package-lock.json   # Exact dependency versions (npm)
